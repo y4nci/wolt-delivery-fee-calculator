@@ -38,9 +38,8 @@
     "paths": {
       "@utils/*": ["src/utils/*"],
       "@assets/*": ["assets/*"],
-      "@constants": [ "./src/constants.ts" ],
-      "react": [ "./node_modules/@types/react" ],
       "*": ["src/types/*.d.ts"],
+      "react": [ "./node_modules/@types/react" ],
     },
     "plugins": [
       {

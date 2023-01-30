@@ -6,7 +6,7 @@ import {
     EXTRA_ITEM_SURCHARGE, EXTRA_ITEM_THRESHOLD,
     FREE_DELIVERY_THRESHOLD,     MAX_DELIVERY_FEE, RUSH_HOUR_DAY, RUSH_HOUR_END, RUSH_HOUR_FACTOR,
     RUSH_HOUR_START,
-} from '@constants';
+} from './constants';
 
 const calculateCartSurcharge = (cart: Cart): number => {
     return cart < CART_SURCHARGE ? CART_SURCHARGE - cart : 0;
@@ -38,7 +38,7 @@ const isRushHour = (orderTime: OrderTime): boolean => {
     return (
         orderTime.getDay() === RUSH_HOUR_DAY &&
         orderTime.getHours() >= RUSH_HOUR_START &&
-        orderTime.getHours() < RUSH_HOUR_END
+        orderTime.getHours() <= RUSH_HOUR_END
     );
 };
 
