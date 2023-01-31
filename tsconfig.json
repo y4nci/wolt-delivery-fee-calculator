@@ -1,6 +1,8 @@
 {
-  "include": ["src/**/*", "assets/**/*"],
-  "exclude": ["dist/**/*", "node_modules/**/*"],
+  "include": ["./src/**/*",
+    "./public/assets/**/*"
+  ],
+  "exclude": ["./dist/**/*", "./node_modules/**/*"],
   "compilerOptions": {
     "incremental": true,
     "target": "ES2020",
@@ -22,7 +24,6 @@
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noImplicitThis": true,
-    "alwaysStrict": true,
 
     /* Additional Checks */
     "noUnusedLocals": true,                                /* Report errors on unused locals. */
@@ -33,12 +34,11 @@
     "noPropertyAccessFromIndexSignature": true,            /* Require undeclared properties from index signatures to use element accesses. */
 
     /* Module Resolution Options */
-    "moduleResolution": "node",
     "baseUrl": "./",
+    "noEmit": false,
     "paths": {
-      "@utils/*": ["src/utils/*"],
-      "@assets/*": ["assets/*"],
-      "*": ["src/types/*.d.ts"],
+      "@assets/*": ["./public/assets/*"],
+      "*": ["./src/types/*.d.ts"],
       "react": [ "./node_modules/@types/react" ],
     },
     "plugins": [

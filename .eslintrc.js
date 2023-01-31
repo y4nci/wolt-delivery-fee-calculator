@@ -12,7 +12,7 @@ module.exports = {
         jest: true,
         browser: true,
     },
-    ignorePatterns: ['.eslintrc.js', '**/autoLayout.js', '**/heap.js', '**/CSS*DRenderer.js', 'webpack.*.config.js', 'jest.config.js', '__mocks__/**', '*.mjs'],
+    ignorePatterns: ['.eslintrc.js', '**/autoLayout.js', '**/heap.js', '**/CSS*DRenderer.js', 'webpack.config.js', 'jest.config.js', '__mocks__/**', '*.mjs'],
     settings: {
         'import/core-modules': [ 'electron' ],
         'import/resolver': {
