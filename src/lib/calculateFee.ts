@@ -38,7 +38,7 @@ const isRushHour = (orderTime: OrderTime): boolean => {
     return (
         orderTime.getDay() === RUSH_HOUR_DAY &&
         orderTime.getHours() >= RUSH_HOUR_START &&
-        orderTime.getHours() <= RUSH_HOUR_END
+        orderTime.getHours() < RUSH_HOUR_END
     );
 };
 
@@ -50,7 +50,7 @@ export const calculateFee = (
     const itemsSurcharge = calculateItemsSurcharge(itemsInp);
     const deliveryFee = calculateDeliveryFee(distanceInp);
 
-    if (cartSurcharge >= FREE_DELIVERY_THRESHOLD) return 0;
+    if (cartInp >= FREE_DELIVERY_THRESHOLD) return 0;
 
     let fee = cartSurcharge + itemsSurcharge + deliveryFee;
 

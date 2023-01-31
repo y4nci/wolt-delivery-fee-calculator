@@ -21,3 +21,9 @@ type Items = number;
  * - **Date**
  */
 declare type OrderTime = Date;
+
+/**
+ * The delivery fee in euros.
+ * - **NUMBER**
+ */
+declare type Fee = number;
