@@ -20,15 +20,18 @@ export const Calculator = () => {
 
     return (
         <div className="calculator flexCenterColumn">
-            <Button style={{ fontSize: 'large' }} intent="primary" onClick={() => {
-                const [isValid, invalids] = areInputsValid();
+            <Button style={{ fontSize: 'large' }} intent="primary"
+                onClick={() => {
+                    const [isValid, invalids] = areInputsValid();
 
-                if (!isValid) {
-                    new WarningService().warn(invalids);
-                    return;
-                }
-                setFee(calculate());
-            }}>Calculate</Button>
+                    if (!isValid) {
+                        new WarningService().warn(invalids);
+                        return;
+                    }
+                    setFee(calculate());
+                }}
+                icon="calculator"
+            >Calculate</Button>
             {fee !== null &&
                 <div className="fee">
                     <p>In total:&nbsp;</p>
