@@ -18,8 +18,10 @@ export const Calculator = () => {
     return (
         <div className="calculator">
             <Button minimal style={{ fontSize: 'large' }} fill intent="primary" onClick={() => {
-                if (!areInputsValid()) {
-                    new WarningService().warn();
+                const [isValid, invalids] = areInputsValid();
+
+                if (!isValid) {
+                    new WarningService().warn(invalids);
                     return;
                 }
                 setFee(calculate());

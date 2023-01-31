@@ -3,10 +3,12 @@ export class WarningService {
         this.warn = this.warn.bind(this);
     }
 
-    warn(): void {
-        window.alert('Please make sure all your inputs are valid.\n\n' +
-            '  Cart: a positive number\n' +
-            '  Distance: a positive integer\n' +
-            '  Items: a positive integer');
+    pluralSuffix(count: number): string {
+        return count === 1 ? '' : 's';
+    }
+
+    warn(invalids: string[]): void {
+        window.alert('Please make sure the following input value' + this.pluralSuffix(invalids.length) + ' are valid: '
+            + invalids.join(', '));
     }
 }
