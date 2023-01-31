@@ -1,8 +1,9 @@
+import { Icon, Intent } from '@blueprintjs/core';
 import { DateInput } from '@blueprintjs/datetime';
 import React, { useState } from 'react';
 
 import { dateFormatter, dateParser } from '../lib/dateUtils';
-import { isCartValid, isDistanceValid, isItemsValid } from '../lib/validation';
+import { isCartValid, isDistanceValid, isItemsValid, isOrderTimeValid } from '../lib/validation';
 import { InputService } from '../services/inputService';
 import { InputField } from './InputField';
 
@@ -13,6 +14,7 @@ export const InputGrid = () => {
     const [cartIntent, setCartIntent] = useState('primary');
     const [distanceIntent, setDistanceIntent] = useState('primary');
     const [itemsIntent, setItemsIntent] = useState('primary');
+    const [orderTimeIntent, setOrderTimeIntent] = useState('primary');
 
     return (
         <div className="inputGrid">
@@ -75,11 +77,21 @@ export const InputGrid = () => {
                     formatDate={date => dateFormatter(date)}
                     parseDate={str => dateParser(str)}
                     onChange={(selectedDate) => {
+                        if (!isOrderTimeValid(selectedDate)) {
+                            setOrderTimeIntent('danger');
+                        } else {
+                            setOrderTimeIntent('primary');
+                        }
                         InputService.getInstance().setOrderTime(selectedDate);
                     }}
                     timePickerProps={{
                         showArrowButtons: true,
                         precision: 'minute',
+                    }}
+                    shortcuts
+                    inputProps={{
+                        leftElement: <Icon icon="calendar"/>,
+                        intent: orderTimeIntent as Intent,
                     }}
                 />
             </div>
