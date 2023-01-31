@@ -10,11 +10,6 @@ import { InputField } from './InputField';
  * Includes all the input fields for the cart, distance, item count and date
  */
 export const InputGrid = () => {
-    // TODO: get rid of these states
-    const [cartValue, setCartValue] = useState<Cart>(null);
-    const [distanceValue, setDistanceValue] = useState<Distance>(null);
-    const [itemsValue, setItemsValue] = useState<Items>(null);
-    const [orderDateValue, setOrderDateValue] = useState<OrderTime>(new Date());
     const [cartIntent, setCartIntent] = useState('primary');
     const [distanceIntent, setDistanceIntent] = useState('primary');
     const [itemsIntent, setItemsIntent] = useState('primary');
@@ -24,7 +19,6 @@ export const InputGrid = () => {
             <div className="alignSelfCenter marginBottom24">Cart Value</div>
             <div className="alignSelfCenter50">
                 <InputField
-                    value={cartValue}
                     onChange={(valueAsNumber) => {
                         if (!isCartValid(valueAsNumber)) {
                             setCartIntent('danger');
@@ -32,7 +26,6 @@ export const InputGrid = () => {
                             setCartIntent('primary');
                         }
                         InputService.getInstance().setCart(valueAsNumber);
-                        setCartValue(valueAsNumber);
                     }}
                     intent={cartIntent}
                     leftIcon="euro"
@@ -42,7 +35,6 @@ export const InputGrid = () => {
             <div className="alignSelfCenter marginBottom24">Delivery Distance</div>
             <div className="alignSelfCenter50">
                 <InputField
-                    value={distanceValue}
                     onChange={(valueAsNumber) => {
                         if (!isDistanceValid(valueAsNumber)) {
                             setDistanceIntent('danger');
@@ -50,7 +42,6 @@ export const InputGrid = () => {
                             setDistanceIntent('primary');
                         }
                         InputService.getInstance().setDistance(valueAsNumber);
-                        setDistanceValue(valueAsNumber);
                     }}
                     intent={distanceIntent}
                     leftIcon="map"
@@ -60,7 +51,6 @@ export const InputGrid = () => {
             <div className="alignSelfCenter marginBottom24">Item Count</div>
             <div className="alignSelfCenter50">
                 <InputField
-                    value={itemsValue}
                     onChange={(valueAsNumber) => {
                         if (!isItemsValid(valueAsNumber)) {
                             setItemsIntent('danger');
@@ -68,7 +58,6 @@ export const InputGrid = () => {
                             setItemsIntent('primary');
                         }
                         InputService.getInstance().setItems(valueAsNumber);
-                        setItemsValue(valueAsNumber);
                     }}
                     intent={itemsIntent}
                     leftIcon="shopping-cart"
@@ -85,10 +74,8 @@ export const InputGrid = () => {
                     placeholder="DD/MM/YYYY"
                     formatDate={date => dateFormatter(date)}
                     parseDate={str => dateParser(str)}
-                    value={orderDateValue}
                     onChange={(selectedDate) => {
                         InputService.getInstance().setOrderTime(selectedDate);
-                        setOrderDateValue(selectedDate);
                     }}
                     timePickerProps={{
                         showArrowButtons: true,
