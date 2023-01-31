@@ -34,12 +34,22 @@ export const isItemsValid = (items: Items): boolean => {
 };
 
 /**
+ * Checks if the date input is valid.
+ * The input must be a valid date.
+ * @param date The date input.
+ * @returns True if the input is valid, false otherwise.
+ */
+export const isOrderTimeValid = (date: OrderTime): boolean => {
+    return date != null && date instanceof Date;
+};
+
+/**
  * Checks whether the inputs are valid.
  * Fetches the inputs from the input service.
  * @returns True if the inputs are valid, false otherwise.
  */
 export const areInputsValid = (): [boolean, string[]] => {
-    const { cart, distance, items } = InputService.getInstance().getInputs();
+    const { cart, distance, items, orderTime } = InputService.getInstance().getInputs();
     let invalids: string[] = [];
     let isValid = true;
 
@@ -54,6 +64,10 @@ export const areInputsValid = (): [boolean, string[]] => {
     if (!isItemsValid(items)) {
         isValid = false;
         invalids.push('items');
+    }
+    if (!isOrderTimeValid(orderTime)) {
+        isValid = false;
+        invalids.push('orderTime');
     }
 
     return [isValid, invalids];

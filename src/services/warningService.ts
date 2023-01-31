@@ -5,6 +5,8 @@ export class WarningService {
 
     invalidItemsMessage = 'The number of items must be an integer greater than 0.\n';
 
+    invalidOrderTimeMessage = 'The order time must be a valid date.\n';
+
     constructor() {
         this.warn = this.warn.bind(this);
     }
@@ -30,6 +32,10 @@ export class WarningService {
 
         if (invalids.includes('items')) {
             warning += this.invalidItemsMessage;
+        }
+
+        if (invalids.includes('orderTime')) {
+            warning += this.invalidOrderTimeMessage;
         }
 
         if (warning) {

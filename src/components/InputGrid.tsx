@@ -71,7 +71,7 @@ export const InputGrid = () => {
                     fill
                     closeOnSelection={false}
                     popoverProps={{ position: 'bottom' }}
-                    placeholder="DD/MM/YYYY"
+                    placeholder={dateFormatter(new Date())}
                     formatDate={date => dateFormatter(date)}
                     parseDate={str => dateParser(str)}
                     onChange={(selectedDate) => {
