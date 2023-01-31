@@ -21,6 +21,7 @@ export const InputGrid = () => {
             <div className="alignSelfCenter marginBottom24">Cart Value</div>
             <div className="alignSelfCenter50">
                 <InputField
+                    id="cartInput"
                     onChange={(valueAsNumber) => {
                         if (!isCartValid(valueAsNumber)) {
                             setCartIntent('danger');
@@ -28,6 +29,11 @@ export const InputGrid = () => {
                             setCartIntent('primary');
                         }
                         InputService.getInstance().setCart(valueAsNumber);
+                    }}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') {
+                            document.getElementById('distanceInput').focus();
+                        }
                     }}
                     intent={cartIntent}
                     leftIcon="euro"
@@ -37,6 +43,7 @@ export const InputGrid = () => {
             <div className="alignSelfCenter marginBottom24">Delivery Distance</div>
             <div className="alignSelfCenter50">
                 <InputField
+                    id="distanceInput"
                     onChange={(valueAsNumber) => {
                         if (!isDistanceValid(valueAsNumber)) {
                             setDistanceIntent('danger');
@@ -44,6 +51,11 @@ export const InputGrid = () => {
                             setDistanceIntent('primary');
                         }
                         InputService.getInstance().setDistance(valueAsNumber);
+                    }}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') {
+                            document.getElementById('itemsInput').focus();
+                        }
                     }}
                     intent={distanceIntent}
                     leftIcon="map"
@@ -53,6 +65,7 @@ export const InputGrid = () => {
             <div className="alignSelfCenter marginBottom24">Item Count</div>
             <div className="alignSelfCenter50">
                 <InputField
+                    id="itemsInput"
                     onChange={(valueAsNumber) => {
                         if (!isItemsValid(valueAsNumber)) {
                             setItemsIntent('danger');
@@ -60,6 +73,11 @@ export const InputGrid = () => {
                             setItemsIntent('primary');
                         }
                         InputService.getInstance().setItems(valueAsNumber);
+                    }}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') {
+                            document.getElementById('orderTimeInput').focus();
+                        }
                     }}
                     intent={itemsIntent}
                     leftIcon="shopping-cart"
@@ -90,6 +108,7 @@ export const InputGrid = () => {
                     }}
                     shortcuts
                     inputProps={{
+                        id: 'orderTimeInput',
                         leftElement: <Icon icon="calendar"/>,
                         intent: orderTimeIntent as Intent,
                     }}
