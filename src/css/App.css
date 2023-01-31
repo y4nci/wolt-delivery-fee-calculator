@@ -56,12 +56,21 @@
 
 .inputGrid{
     display: grid;
-    grid-template-columns: 150px 250px 25px;
-    grid-template-rows: 50px 50px 50px;
+    grid-template-columns: 150px 250px;
+    grid-template-rows: 50px 50px;
 }
 
 .alignSelfCenter{
     align-self: center;
+}
+
+.alignSelfCenter50{
+    align-self: center;
+    height: 50px;
+}
+
+.marginBottom24{
+    margin-bottom: 24px;
 }
 
 .unit{
@@ -84,6 +93,8 @@
 .fee{
     margin: 20px;
     font-size: x-large;
+    display: flex;
+    justify-content: center;
 }
 
 .calculator{

@@ -1,4 +1,8 @@
+/**
+ * the class that controls the inputs.
+ */
 export class InputService {
+    /** contains the values of inputs: cart, distance, item count and order time */
     state;
 
     private static _instance = new InputService();
@@ -53,14 +57,5 @@ export class InputService {
 
     getInputs() {
         return this.state;
-    }
-
-    reset(): void {
-        this.state = {
-            cart: null as Cart,
-            distance: null as Distance,
-            items: null as Items,
-            orderTime: new Date() as OrderTime,
-        };
     }
 }

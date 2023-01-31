@@ -8,10 +8,20 @@ import {
     RUSH_HOUR_START,
 } from './constants';
 
+/**
+ * Calculates the cart surcharge based on the cart value.
+ * @param cart The cart value.
+ * @returns The cart surcharge.
+ */
 const calculateCartSurcharge = (cart: Cart): number => {
     return cart < CART_SURCHARGE ? CART_SURCHARGE - cart : 0;
 };
 
+/**
+ * Calculates the item surcharge based on the number of items.
+ * @param items The number of items.
+ * @returns The item surcharge.
+ */
 const calculateItemsSurcharge = (items: Items): number => {
     let surcharge = 0;
 
@@ -26,6 +36,11 @@ const calculateItemsSurcharge = (items: Items): number => {
     return surcharge;
 };
 
+/**
+ * Calculates the raw delivery fee based on the distance.
+ * @param distance The distance.
+ * @returns The raw delivery fee.
+ */
 const calculateDeliveryFee = (distance: Distance): number => {
     if (distance < BASE_DISTANCE) return BASE_FEE;
 
@@ -34,6 +49,11 @@ const calculateDeliveryFee = (distance: Distance): number => {
     return Math.min(BASE_FEE + extraDistanceFree, MAX_DELIVERY_FEE);
 };
 
+/**
+ * Returns true if the order is placed during rush hour.
+ * @param orderTime The order time.
+ * @returns True if the order is placed during rush hour.
+ */
 const isRushHour = (orderTime: OrderTime): boolean => {
     return (
         orderTime.getDay() === RUSH_HOUR_DAY &&
@@ -42,6 +62,13 @@ const isRushHour = (orderTime: OrderTime): boolean => {
     );
 };
 
+/**
+ * Calculates the final delivery fee based on the distance and the order time.
+ * @param cartInp The cart value.
+ * @param distanceInp The distance.
+ * @param itemsInp The number of items.
+ * @param orderTimeInp The order time.
+ */
 export const calculateFee = (
     cartInp: Cart, distanceInp: Distance,
     itemsInp: Items, orderTimeInp: OrderTime,

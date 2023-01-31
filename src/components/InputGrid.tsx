@@ -1,11 +1,16 @@
-import { DatePicker } from '@blueprintjs/datetime';
+import { DateInput } from '@blueprintjs/datetime';
 import React, { useState } from 'react';
 
+import { dateFormatter, dateParser } from '../lib/dateUtils';
 import { isCartValid, isDistanceValid, isItemsValid } from '../lib/validation';
 import { InputService } from '../services/inputService';
 import { InputField } from './InputField';
 
+/**
+ * Includes all the input fields for the cart, distance, item count and date
+ */
 export const InputGrid = () => {
+    // TODO: get rid of these states
     const [cartValue, setCartValue] = useState<Cart>(null);
     const [distanceValue, setDistanceValue] = useState<Distance>(null);
     const [itemsValue, setItemsValue] = useState<Items>(null);
@@ -16,8 +21,8 @@ export const InputGrid = () => {
 
     return (
         <div className="inputGrid">
-            <div className="alignSelfCenter">Cart Value</div>
-            <div className="alignSelfCenter">
+            <div className="alignSelfCenter marginBottom24">Cart Value</div>
+            <div className="alignSelfCenter50">
                 <InputField
                     value={cartValue}
                     onChange={(valueAsNumber) => {
@@ -30,11 +35,12 @@ export const InputGrid = () => {
                         setCartValue(valueAsNumber);
                     }}
                     intent={cartIntent}
+                    leftIcon="euro"
+                    placeholder="€"
                 />
             </div>
-            <div className="alignSelfCenter unit">€</div>
-            <div className="alignSelfCenter">Delivery Distance</div>
-            <div className="alignSelfCenter">
+            <div className="alignSelfCenter marginBottom24">Delivery Distance</div>
+            <div className="alignSelfCenter50">
                 <InputField
                     value={distanceValue}
                     onChange={(valueAsNumber) => {
@@ -47,11 +53,12 @@ export const InputGrid = () => {
                         setDistanceValue(valueAsNumber);
                     }}
                     intent={distanceIntent}
+                    leftIcon="map"
+                    placeholder="m"
                 />
             </div>
-            <div className="alignSelfCenter unit">m</div>
-            <div className="alignSelfCenter">Item Count</div>
-            <div className="alignSelfCenter">
+            <div className="alignSelfCenter marginBottom24">Item Count</div>
+            <div className="alignSelfCenter50">
                 <InputField
                     value={itemsValue}
                     onChange={(valueAsNumber) => {
@@ -64,25 +71,31 @@ export const InputGrid = () => {
                         setItemsValue(valueAsNumber);
                     }}
                     intent={itemsIntent}
+                    leftIcon="shopping-cart"
+                    placeholder="items"
                 />
             </div>
-            <div/>
             <div className="alignSelfCenter">Order Time</div>
-            <div className="alignSelfCenter">
-                <DatePicker
-                    className="bp4-input noInput flexCenter"
+            <div className="alignSelfCenter" style={{ marginTop: '8px' }}>
+                <DateInput
+                    highlightCurrentDay
+                    fill
+                    closeOnSelection={false}
+                    popoverProps={{ position: 'bottom' }}
+                    placeholder="DD/MM/YYYY"
+                    formatDate={date => dateFormatter(date)}
+                    parseDate={str => dateParser(str)}
                     value={orderDateValue}
                     onChange={(selectedDate) => {
                         InputService.getInstance().setOrderTime(selectedDate);
                         setOrderDateValue(selectedDate);
                     }}
-                    timePrecision="minute"
                     timePickerProps={{
                         showArrowButtons: true,
+                        precision: 'minute',
                     }}
                 />
             </div>
-            <div/>
         </div>
     );
 };

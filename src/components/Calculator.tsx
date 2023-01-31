@@ -6,6 +6,9 @@ import { areInputsValid } from '../lib/validation';
 import { InputService } from '../services/inputService';
 import { WarningService } from '../services/warningService';
 
+/**
+ * The component that contains the button that calculates the fee and the fee itself.
+ */
 export const Calculator = () => {
     const [fee, setFee] = useState<Fee>(null);
 
@@ -17,7 +20,7 @@ export const Calculator = () => {
 
     return (
         <div className="calculator">
-            <Button minimal style={{ fontSize: 'large' }} fill intent="primary" onClick={() => {
+            <Button style={{ fontSize: 'large' }} fill intent="primary" onClick={() => {
                 const [isValid, invalids] = areInputsValid();
 
                 if (!isValid) {
