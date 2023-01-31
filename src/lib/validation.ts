@@ -40,7 +40,7 @@ export const isItemsValid = (items: Items): boolean => {
  * @returns True if the input is valid, false otherwise.
  */
 export const isOrderTimeValid = (date: OrderTime): boolean => {
-    return date != null && date instanceof Date;
+    return date != null && date.toString() !== 'Invalid Date' && date instanceof Date;
 };
 
 /**
