@@ -19,8 +19,8 @@ export const Calculator = () => {
     };
 
     return (
-        <div className="calculator">
-            <Button style={{ fontSize: 'large' }} fill intent="primary" onClick={() => {
+        <div className="calculator flexCenterColumn">
+            <Button style={{ fontSize: 'large' }} intent="primary" onClick={() => {
                 const [isValid, invalids] = areInputsValid();
 
                 if (!isValid) {
@@ -30,7 +30,7 @@ export const Calculator = () => {
                 setFee(calculate());
             }}>Calculate</Button>
             <div className="fee">
-                {fee !== null ? `Fee: ${fee}€` : ''}
+                {fee !== null ? `In total: ${fee}€` : ''}
             </div>
         </div>
     );
