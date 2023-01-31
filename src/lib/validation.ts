@@ -5,7 +5,7 @@ import { InputService } from '../services/inputService';
 
 /**
  * Checks if the cart value input is valid.
- * The input must be a number and must be greater than or equal to 0.
+ * The input must be a number and must be greater than 0.
  * @param cart The cart value input.
  * @returns True if the input is valid, false otherwise.
  */
