@@ -23,11 +23,11 @@ export const InputGrid = () => {
                     onChange={(valueAsNumber) => {
                         if (!isCartValid(valueAsNumber)) {
                             setCartIntent('danger');
-                            return;
+                        } else {
+                            setCartIntent('primary');
                         }
                         InputService.getInstance().setCart(valueAsNumber);
                         setCartValue(valueAsNumber);
-                        setCartIntent('primary');
                     }}
                     intent={cartIntent}
                 />
@@ -40,11 +40,11 @@ export const InputGrid = () => {
                     onChange={(valueAsNumber) => {
                         if (!isDistanceValid(valueAsNumber)) {
                             setDistanceIntent('danger');
-                            return;
+                        } else {
+                            setDistanceIntent('primary');
                         }
                         InputService.getInstance().setDistance(valueAsNumber);
                         setDistanceValue(valueAsNumber);
-                        setDistanceIntent('primary');
                     }}
                     intent={distanceIntent}
                 />
@@ -57,11 +57,11 @@ export const InputGrid = () => {
                     onChange={(valueAsNumber) => {
                         if (!isItemsValid(valueAsNumber)) {
                             setItemsIntent('danger');
-                            return;
+                        } else {
+                            setItemsIntent('primary');
                         }
                         InputService.getInstance().setItems(valueAsNumber);
                         setItemsValue(valueAsNumber);
-                        setItemsIntent('primary');
                     }}
                     intent={itemsIntent}
                 />

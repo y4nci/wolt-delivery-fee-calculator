@@ -11,9 +11,7 @@ export const Calculator = () => {
 
     const calculate = () => {
         const { cart, distance, items, orderTime } = InputService.getInstance().getInputs();
-        console.log(cart, distance, items, orderTime);
         const totalFee = calculateFee(cart, distance, items, orderTime);
-        console.log(totalFee);
         return totalFee;
     };
 
