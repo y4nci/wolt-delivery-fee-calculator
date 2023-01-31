@@ -3,8 +3,13 @@
   "name": "Wolt Delivery Fee Calculator",
   "icons": [
     {
-      "src": "assets/Wolt.png",
+      "src": "./assets/wolt.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/wolt.ico",
+      "sizes": "256x256",
       "type": "image/png"
     }
   ],
