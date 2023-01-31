@@ -29,9 +29,12 @@ export const Calculator = () => {
                 }
                 setFee(calculate());
             }}>Calculate</Button>
-            <div className="fee">
-                {fee !== null ? `In total: ${fee}€` : ''}
-            </div>
+            {fee !== null &&
+                <div className="fee">
+                    <p>In total:&nbsp;</p>
+                    <p className="feeAmount">{fee}€</p>
+                </div>
+            }
         </div>
     );
 };

@@ -104,6 +104,13 @@
     justify-content: center;
 }
 
+.feeAmount{
+    background: darkgreen;
+    color: white;
+    border-radius: 8px;
+    padding: 0 5px;
+}
+
 .calculator{
     margin-top: 20px;
 }
