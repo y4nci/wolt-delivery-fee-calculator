@@ -5,22 +5,22 @@ import { InputService } from '../services/inputService';
 
 /**
  * Checks if the cart value input is valid.
- * The input must be a number and must be greater than 0.
+ * The input must be a number and must be greater than or equal to 0.
  * @param cart The cart value input.
  * @returns True if the input is valid, false otherwise.
  */
 export const isCartValid = (cart: Cart): boolean => {
-    return cart != null && cart >= 0;
+    return cart != null && cart > 0;
 };
 
 /**
  * Checks if the distance input is valid.
- * The input must be an integer and must be greater than 0.
+ * The input must be an integer and must be greater than or equal to 0.
  * @param distance The distance input.
  * @returns True if the input is valid, false otherwise.
  */
 export const isDistanceValid = (distance: Distance): boolean => {
-    return distance != null && distance >= 0 && Number.isInteger(distance);
+    return distance != null && distance > 0 && Number.isInteger(distance);
 };
 
 /**
@@ -30,7 +30,7 @@ export const isDistanceValid = (distance: Distance): boolean => {
  * @returns True if the input is valid, false otherwise.
  */
 export const isItemsValid = (items: Items): boolean => {
-    return items != null && items >= 0 && Number.isInteger(items);
+    return items != null && items > 0 && Number.isInteger(items);
 };
 
 /**
