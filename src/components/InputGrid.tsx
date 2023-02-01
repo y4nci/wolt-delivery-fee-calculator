@@ -85,7 +85,7 @@ export const InputGrid = () => {
                 />
             </div>
             <div className="alignSelfCenter">Order Time</div>
-            <div className="alignSelfCenter" style={{ marginTop: '8px' }}>
+            <div className="alignSelfCenter">
                 <DateInput
                     highlightCurrentDay
                     fill
