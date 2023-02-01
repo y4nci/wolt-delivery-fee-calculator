@@ -14,7 +14,7 @@ const CalculateButton = (props) => {
     };
 
     return (
-        <Button style={{ fontSize: 'large' }} intent="primary"
+        <Button className="calculateButton" intent="primary"
             onClick={() => {
                 const [isValid, invalids] = areInputsValid();
 

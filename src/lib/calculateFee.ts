@@ -15,9 +15,6 @@ import {
  * @returns the rounded number
  */
 const roundToOneFrac = (val: number) => {
-    console.log(val);
-    console.log(Math.round(10 * val));
-    console.log(Math.round(10 * val) / 10);
     return Math.round(10 * val) / 10;
 };
 

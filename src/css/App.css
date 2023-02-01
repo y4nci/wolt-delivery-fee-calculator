@@ -57,7 +57,7 @@
 
 .inputGrid{
     display: grid;
-    grid-template-columns: 150px 250px;
+    grid-template-columns: 150px 300px;
     grid-template-rows: 50px 50px;
 }
 
@@ -103,4 +103,9 @@
 
 .calculator{
     margin-top: 20px;
+}
+
+.calculateButton{
+    font-size: large;
+    width: 150px;
 }
