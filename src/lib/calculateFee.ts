@@ -9,6 +9,19 @@ import {
 } from './constants';
 
 /**
+ * rounds the given number to one fractional digit.
+ * - 10.80000002 => 10.8
+ * @param val the number to round
+ * @returns the rounded number
+ */
+const roundToOneFrac = (val: number) => {
+    console.log(val);
+    console.log(Math.round(10 * val));
+    console.log(Math.round(10 * val) / 10);
+    return Math.round(10 * val) / 10;
+};
+
+/**
  * Calculates the cart surcharge based on the cart value.
  * @param cart The cart value.
  * @returns The cart surcharge.
@@ -83,5 +96,5 @@ export const calculateFee = (
 
     if (isRushHour(orderTimeInp)) fee *= RUSH_HOUR_FACTOR;
 
-    return Math.min(fee, MAX_DELIVERY_FEE);
+    return Math.min(roundToOneFrac(fee), MAX_DELIVERY_FEE);
 };
