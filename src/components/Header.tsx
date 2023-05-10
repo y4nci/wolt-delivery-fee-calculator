@@ -13,7 +13,7 @@ export const Header = () => {
             <Divider className="divider"/>
             <h1
                 onClick={() => {
-                    window.location.href = '/';
+                    window.location.href = '/wolt-delivery-fee-calculator';
                 }}
             >
                 Delivery Fee Calculator
