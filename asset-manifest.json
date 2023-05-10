@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wolt-delivery-fee-calculator/static/css/main.aed3baba.css",
+    "main.js": "/wolt-delivery-fee-calculator/static/js/main.75f0a78f.js",
+    "index.html": "/wolt-delivery-fee-calculator/index.html",
+    "main.aed3baba.css.map": "/wolt-delivery-fee-calculator/static/css/main.aed3baba.css.map",
+    "main.75f0a78f.js.map": "/wolt-delivery-fee-calculator/static/js/main.75f0a78f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aed3baba.css",
+    "static/js/main.75f0a78f.js"
+  ]
+}
