@@ -1,6 +1,7 @@
 {
-  "name": "my-webpack-project",
+  "name": "wolt-delivery-fee-calculator",
   "version": "1.0.0",
+  "homepage": "https://y4nci.github.io/wolt-delivery-fee-calculator",
   "private": false,
   "dependencies": {
     "@blueprintjs/core": "^4.15.0",
@@ -29,11 +30,14 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "gh-pages": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "webpack --mode=production --node-env=production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{tsx,ts,js}\" --fix",
